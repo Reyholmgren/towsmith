@@ -24,6 +24,18 @@ class Dashboard extends React.Component {
       this.setState({request: request});
     });
   }
+  confirmRequest(){
+    $.ajax({
+      url: '/requests',
+      type:'POST',
+      data: {request: {title: this.refs.newRequest.value}}
+    }).success( data => {
+      let request = this.state.request;
+      request.unshift(data.request);
+      this.refs.newRequest.value = null;
+      this.setState({request: request});
+    });
+  }
   render() {
     let request = this.state.request.map( request => {
       let key = `request-${request.title}`;
@@ -33,7 +45,7 @@ class Dashboard extends React.Component {
             <div className='container center'>
               <div className='row col s12 m8 offset-m2'>
                 <div id='profile'>
-                  <p>Welcome, NEED TO SAY USER NAME!  </p>
+                  <p>Welcome, MAKE IT SAY NAME!</p>
                 </div>
                 <div id='quotes'>
                   <h1><strong>Make A New Request</strong></h1>
@@ -53,7 +65,7 @@ class Dashboard extends React.Component {
                           <label htmlFor="ride">Do You Need A Ride?</label>
                           <br />
                           <br />
-                          <button className='btn' onClick={this.newRequest}>Next Step</button>
+                          <button data-target="plz_confirm" className="btn modal-trigger">Next Step</button>
                         </form>
                       </div>
                     </li>
@@ -66,7 +78,9 @@ class Dashboard extends React.Component {
                           <input placeholder="Make Of Car" ref='newRequest' autoFocus={false} />
                           <input placeholder="Model Of Car" ref='newRequest' autoFocus={false} />
                           <input placeholder="Year Of Car" ref='newRequest' autoFocus={false} />
-                          <button className='btn' onClick={this.newRequest}>Next Step</button>
+                          <br />
+                          <br />
+                          <button data-target="plz_confirm" className="btn modal-trigger">Next Step</button>
                         </form>
                       </div>
                     </li>
@@ -84,11 +98,21 @@ class Dashboard extends React.Component {
                           <label htmlFor="ride">Do You Need A Ride?</label>
                           <br />
                           <br />
-                          <button className='btn' onClick={this.newRequest}>Next Step</button>
+                          <button data-target="plz_confirm" className="btn modal-trigger">Next Step</button>
                         </form>
                       </div>
                     </li>
                   </ul>
+                </div>
+                <div className="modal" id="plz_confirm">
+                  <div className="modal-content">
+                    <h4>Please Confirm Info</h4>
+                    <p>A bunch of text</p>
+                  </div>
+                  <div className="modal-footer">
+                    <a href="/requests" className="modal-action modal-close waves-effect waves-green btn-flat">Back</a>
+                    <a href="#!" className="modal-action modal-close waves-effect waves-green btn-flat">Correct</a>
+                  </div>
                 </div>
               </div>
             </div>);
