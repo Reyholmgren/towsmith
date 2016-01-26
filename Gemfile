@@ -21,16 +21,22 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
+# sass styling
 gem 'materialize-sass'
-
-gem 'devise' 
-
+# user management and authentication
+gem 'devise'
+# authenticate and signup with devise for facebook, twitter, linkedin
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-linkedin' 
+# geolocaton helper gem (transform lat/long into physical address)
 gem 'geocoder'
-
+# haml
 gem 'haml-rails'
-
+# react 
 gem 'react-rails'
+# puma webserver for eventual heroku push
+gem 'puma'
 
 
 # Use ActiveModel has_secure_password
