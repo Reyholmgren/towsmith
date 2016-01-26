@@ -1,14 +1,13 @@
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
-    this.newRequest=this.newRequest.bind(this);
+    this.newRequest = this.newRequest.bind(this);
+    this.state = { request: [] };
   }
   componentWillMount(){
     $.ajax({
-      url: '/requests',
-      type: 'GET',
-      dataType: 'JSON',
-      data: { location: location }
+      url: '/request',
+      type: 'GET'
     }).success( data => {
       this.setState({ requests: data });
     });
@@ -20,31 +19,42 @@ class Dashboard extends React.Component {
       data: {request: {title: this.refs.newRequest.value}}
     }).success( data => {
       let requests = this.state.requests;
-      requests.push(data.request);
-      this.setState({requests: requests});
+      request.unshift(data.request);
+      this.refs.newRequest.value = null;
+      this.setState({request: request});
     });
   }
   render() {
-    let requests = this.state.requests.map(request => {
+    let request = this.state.request.map(request => {
       let key = `request-${request.title}`;
       return( <Request key={key} {...request} />);
     });
     return(
             <div className='container center'>
               <div className='row col s12 m8 offset-m2'>
-                <div className= 'card blue-grey darken-1'>
-                <div className= 'card-content white-text'>
                 <div id='profile'>
                   <p>Welcome, {this.userFirstName}!  </p>
                 </div>
                 <div id='quotes'>
-                  <p><strong>Pending Requests:</strong></p>
-                  <p>{this.userPendingRequests}</p>
-                  <p><strong>Completed Requests:</strong></p>
-                  <p>{this.userCompletedRequests}</p>
+                  <h1><strong>Requests</strong></h1>
+                  <hr />
+                  <p>{this.userRequest}</p>
+                  // <p><strong>Pending Requests:</strong></p>
+                  // <p>{this.userPendingRequests}</p>
+                  // <p><strong>Completed Requests:</strong></p>
+                  // <p>{this.userCompletedRequests}</p>
+                  <input placeholder="Make A New Request" ref='newRequest' autoFocus={true} /> 
+                  <button className='btn' onClick={this.newRequest}>New Request</button>
+                  <div className='card-action'>
+                    <a onClick={this.userRequest}>{this.props.title}</a>
+                  </div>
+                  <div className= 'card blue-grey darken-1'>
+                    <div className= 'card-content white-text'>
+                      <p>{this.props.info}</p>
+                      {request}
+                    </div>
+                  </div>
                 </div>
-              </div>
-              </div>
               </div>
             </div>);
   }

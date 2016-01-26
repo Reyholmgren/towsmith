@@ -1,6 +1,4 @@
 class DashboardController < ApplicationController
-
-
   def index
   end
 
@@ -10,7 +8,6 @@ class DashboardController < ApplicationController
   end
 
   private
-
     def request_params
       params.require(:request).permit(:info)
     end
