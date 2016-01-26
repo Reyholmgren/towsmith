@@ -3,7 +3,6 @@ class Dashboard extends React.Component {
     super(props);
     this.newRequest=this.newRequest.bind(this);
   }
-
   componentWillMount(){
     $.ajax({
       url: '/requests',
@@ -25,8 +24,6 @@ class Dashboard extends React.Component {
       this.setState({requests: requests});
     });
   }
-
-
   render() {
     let requests = this.state.requests.map(request => {
       let key = `request-${request.title}`;
