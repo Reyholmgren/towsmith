@@ -6,26 +6,26 @@ class Dashboard extends React.Component {
   }
   componentWillMount(){
     $.ajax({
-      url: '/request',
+      url: '/requests',
       type: 'GET'
     }).success( data => {
-      this.setState({ requests: data });
+      this.setState({ requests: data.requests });
     });
   }
   newRequest(){
     $.ajax({
-      url: '/request',
+      url: '/requests',
       type: 'POST',
       data: {request: {title: this.refs.newRequest.value}}
     }).success( data => {
-      let requests = this.state.requests;
+      let request = this.state.request;
       request.unshift(data.request);
       this.refs.newRequest.value = null;
       this.setState({request: request});
     });
   }
   render() {
-    let request = this.state.request.map(request => {
+    let request = this.state.request.map( request => {
       let key = `request-${request.title}`;
       return( <Request key={key} {...request} />);
     });
@@ -33,29 +33,65 @@ class Dashboard extends React.Component {
             <div className='container center'>
               <div className='row col s12 m8 offset-m2'>
                 <div id='profile'>
-                  <p>Welcome, {this.userFirstName}!  </p>
+                  <p>Welcome, NEED TO SAY USER NAME!  </p>
                 </div>
                 <div id='quotes'>
-                  <h1><strong>Requests</strong></h1>
+                  <h1><strong>Make A New Request</strong></h1>
                   <hr />
                   <p>{this.userRequest}</p>
-                  // <p><strong>Pending Requests:</strong></p>
-                  // <p>{this.userPendingRequests}</p>
-                  // <p><strong>Completed Requests:</strong></p>
-                  // <p>{this.userCompletedRequests}</p>
-                  <input placeholder="Make A New Request" ref='newRequest' autoFocus={true} /> 
-                  <button className='btn' onClick={this.newRequest}>New Request</button>
-                  <div className='card-action'>
-                    <a onClick={this.userRequest}>{this.props.title}</a>
-                  </div>
-                  <div className= 'card blue-grey darken-1'>
-                    <div className= 'card-content white-text'>
-                      <p>{this.props.info}</p>
-                      {request}
-                    </div>
-                  </div>
+                  <ul className="collapsible popout" data-collapsible="accordion">
+                    <li>
+                      <div className="collapsible-header"><i className="material-icons"></i>Tow Truck</div>
+                      <div className="collapsible-body">
+                        <form>
+                          <input placeholder="Brief Description" ref='newRequest' autoFocus={true} />  
+                          <input placeholder="Phone Number" ref='newRequest' autoFocus={false} />
+                          <input placeholder="Make Of Car" ref='newRequest' autoFocus={false} />
+                          <input placeholder="Model Of Car" ref='newRequest' autoFocus={false} />
+                          <input placeholder="Year Of Car" ref='newRequest' autoFocus={false} />
+                          <input type="checkbox" className="filled-in" id="ride" ref='newRequest' autoFocus={false} />
+                          <label htmlFor="ride">Do You Need A Ride?</label>
+                          <br />
+                          <br />
+                          <button className='btn' onClick={this.newRequest}>Next Step</button>
+                        </form>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="collapsible-header"><i className="material-icons"></i>Locksmith</div>
+                      <div className="collapsible-body">
+                        <form>
+                          <input placeholder="Key Description(ie Manual, Transponder Chip, or Remote Control)" ref='newRequest' autoFocus={true} />  
+                          <input placeholder="Phone Number" ref='newRequest' autoFocus={false} />
+                          <input placeholder="Make Of Car" ref='newRequest' autoFocus={false} />
+                          <input placeholder="Model Of Car" ref='newRequest' autoFocus={false} />
+                          <input placeholder="Year Of Car" ref='newRequest' autoFocus={false} />
+                          <button className='btn' onClick={this.newRequest}>Next Step</button>
+                        </form>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="collapsible-header"><i className="material-icons"></i>Tow Truck & Locksmith</div>
+                      <div className="collapsible-body">
+                        <form>
+                          <input placeholder="Why do you need a Tow?" ref='newRequest' autoFocus={true} /> 
+                          <input placeholder="Key Description(ie Manual, Transponder Chip, or Remote Control)" ref='newRequest' autoFocus={false} />  
+                          <input placeholder="Phone Number" ref='newRequest' autoFocus={false} />
+                          <input placeholder="Make Of Car" ref='newRequest' autoFocus={false} />
+                          <input placeholder="Model Of Car" ref='newRequest' autoFocus={false} />
+                          <input placeholder="Year Of Car" ref='newRequest' autoFocus={false} />
+                          <input type="checkbox" className="filled-in" id="ride" ref='newRequest' autoFocus={false} />
+                          <label htmlFor="ride">Do You Need A Ride?</label>
+                          <br />
+                          <br />
+                          <button className='btn' onClick={this.newRequest}>Next Step</button>
+                        </form>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>);
   }
-}
+
+} 

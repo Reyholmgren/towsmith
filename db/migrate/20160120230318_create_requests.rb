@@ -4,6 +4,7 @@ class CreateRequests < ActiveRecord::Migration
       t.string :title
       t.text :info
       t.string :phone
+      t.belongs_to :users
 
       t.timestamps null: false
     end

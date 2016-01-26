@@ -1,5 +1,5 @@
-json.request do 
+json.request do
   json.title @request.title
-  json.body @request.body
+  json.info @request.info
   json.phone @request.phone
 end
