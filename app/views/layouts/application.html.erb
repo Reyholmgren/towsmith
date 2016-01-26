@@ -1,15 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>TowSmith</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="footer, address, phone, icons" />
+
+
+  
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<head>
+      <nav>
+      <div class="nav-wrapper hoverable">
+        <a href="/" class="brand-logo center ">TowSmith</a>
+        
+        <ul id="nav-mobile" class="right ">
+          <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+        </ul>
+
+      </div>
+    </nav>
+  <title>TowSmith</title>
 </head>
 <body>
 <span class="notice"><%= notice %></span>
 <span class="alert"><%= alert %></span>
-<%= yield %>
 
+
+<%= yield %>
 </body>
 </html>
