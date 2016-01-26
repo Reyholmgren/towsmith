@@ -25,10 +25,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'materialize-sass'
 # user management and authentication
 gem 'devise'
-# authenticate and signup with devise for facebook, twitter, linkedin
-gem 'omniauth-facebook'
-gem 'omniauth-twitter'
-gem 'omniauth-linkedin' 
 # geolocaton helper gem (transform lat/long into physical address)
 gem 'geocoder'
 # haml
