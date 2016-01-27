@@ -36,3 +36,7 @@ $secondary-color: color("teal", "darken-2") !default;
   height: 100%;
   width: 100%;
 }
+
+.container {
+  width: 100% !important;
+}

@@ -1,2 +1,15 @@
-%h1 Requests#index
-%p Find me in app/views/requests/index.html.haml
+%h1 Requests Index
+%br
+- if @requests.any?
+  %ul
+    - @requests.each do |request|
+      %li
+        = link_to request.title, request_path(request)
+        = request.created_at
+- else
+  %li
+    No Requests Found
+
+%br
+= link_to 'New Request', new_request_path, class: "btn waves-effect waves-light"
+
