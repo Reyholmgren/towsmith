@@ -34,6 +34,8 @@ gem 'react-rails'
 # puma webserver for eventual heroku push
 gem 'puma'
 
+gem 'petergate'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

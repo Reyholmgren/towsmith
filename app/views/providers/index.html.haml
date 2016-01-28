@@ -1,0 +1,15 @@
+%h1 Quotes Index
+%br
+- if @quotes.any?
+  %ul
+    - @quotes.each do |quote|
+      %li
+        = link_to request.title, request_path(request)
+        = request.created_at
+- else
+  %li
+    No Requests Found
+
+%br
+= link_to 'New Request', new_request_path, class: "btn waves-effect waves-light"
+
