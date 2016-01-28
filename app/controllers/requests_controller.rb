@@ -2,11 +2,12 @@ class RequestsController < ApplicationController
   access all: [:index], user: [:index, :show], provider: :all
 
   def index
-<<<<<<< d3e699481ff954f4d81ea9d49da9da831552ec42
     @requests = Request.all.where(user_id: current_user)
-=======
-    @requests = Request.all.order('created_at DESC')
->>>>>>> added petergate, worked on assigning roles to user controller
+    if current_user.available_roles.include? :user
+      @request = Request.all.where(user_id: current_user)
+    else
+      @request = Request.all
+    end
   end
 
   def new

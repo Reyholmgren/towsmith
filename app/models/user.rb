@@ -3,6 +3,10 @@ class User < ActiveRecord::Base
   ## PeterGate Roles
   ## The :user role is added by default and shouldn't be included in this list.
   petergate(roles: [:user, :provider])
+  # user_signed_in?
+  # current_user
+  # after_sign_in_path_For(current_user)
+  # authenticate_user!
   ################################################################################
   
 

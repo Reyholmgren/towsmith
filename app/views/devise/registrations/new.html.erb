@@ -7,6 +7,14 @@
         <%= devise_error_messages! %>
 
         <div class="field">
+          <%= f.radio_button :role, 'user', checked: true %>
+          <%= f.label :role_user, 'Customer' %><br />
+          <%= f.radio_button :role, 'provider' %>
+          <%= f.label :role_provider, 'Provider' %><br />
+        </div>
+        <br />
+        <br />
+        <div class="field">
           <%= f.label :first_name %><br />
           <%= f.text_field :first_name, autofocus: true, required: true %>
 

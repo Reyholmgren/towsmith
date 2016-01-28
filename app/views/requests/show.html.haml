@@ -7,4 +7,4 @@
 %p
   = @request.phone
 %br
-= button_to 'Delete this request?', @request, method: :delete, data: { confirm: "Are you sure?"}, class: 'btn waves-effect waves-light'
+= button_to 'Delete this request?', @request, method: :delete, data: { confirm: "Are you sure?"}, class: 'btn waves-effect waves-light' if logged_in?(:user)
