@@ -13,3 +13,17 @@
 %br
 = link_to 'New Request', new_request_path, class: "btn waves-effect waves-light" if logged_in?(:user)
 
+/ Dropdown Trigger
+%a.dropdown-button.btn{"data-activates" => "dropdown1", :href => "#"} Pending Requests
+/ Dropdown Structure
+%ul#dropdown1.dropdown-content
+	- if @requests.any?
+		%ul
+			- @requests.each do |request|	
+				%li
+					= link_to request.title, request_path(request)
+					= request.created_at
+				%li.divider	
+	- else
+		%li
+			= link_to 'No Request Found', new_request_path

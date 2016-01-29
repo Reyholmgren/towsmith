@@ -77,8 +77,6 @@ ActiveRecord::Schema.define(version: 20160127231043) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.string   "provider"
-    t.string   "uid"
     t.string   "roles"
   end
 
