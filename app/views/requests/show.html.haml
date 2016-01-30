@@ -8,4 +8,4 @@
 %br
 = button_to 'Edit Request', edit_request_path, method: :get, class: 'btn waves-effect waves-light'
 %br
-= button_to 'Delete this request?', @request, method: :delete, data: { confirm: "Are you sure?"}, class: 'btn waves-effect waves-light' if logged_in?(:user)
+= button_to 'Delete this request?', @request, method: :delete, data: { confirm: "Are you sure?"}, class: 'btn waves-effect waves-light'
