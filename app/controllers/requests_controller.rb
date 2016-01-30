@@ -1,6 +1,5 @@
 class RequestsController < ApplicationController
-  access all: [:index], user: [:index, :show], provider: :all
-
+  access all: [:index, :show, :new, :create, :destroy], user: [:index, :show, :new, :create, :destroy], provider: :all
   def index
     @requests = Request.all.where(user_id: current_user)
     if current_user.available_roles.include? :user
@@ -17,7 +16,7 @@ class RequestsController < ApplicationController
   def create
     @request = Request.new(request_params)
     if @request.save
-      redirect_to requests_path, notice: "Your post was saved"
+      redirect_to requests_path, notice: "Your request was saved"
     else 
       flash[:alert] = "Error! Failed to create a new request! Please try again."
       redirect_to root_path
