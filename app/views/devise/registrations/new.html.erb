@@ -7,10 +7,10 @@
         <%= devise_error_messages! %>
 
         <div class="field">
-          <%= f.radio_button :role, 'user', checked: true %>
-          <%= f.label :role_user, 'Customer' %><br />
-          <%= f.radio_button :role, 'provider' %>
-          <%= f.label :role_provider, 'Provider' %><br />
+          <%= f.radio_button :roles, 'user' %>
+          <%= f.label :roles_user, 'Customer' %><br />
+          <%= f.radio_button :roles, 'provider' %>
+          <%= f.label :roles_provider, 'Provider' %><br />
         </div>
         <br />
         <br />

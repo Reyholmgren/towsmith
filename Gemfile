@@ -29,12 +29,12 @@ gem 'devise'
 gem 'geocoder'
 # haml
 gem 'haml-rails'
-# react 
+# react
 gem 'react-rails'
 # puma webserver for eventual heroku push
 gem 'puma'
 
-gem 'petergate'
+gem 'cancancan', '~> 1.10'
 
 
 # Use ActiveModel has_secure_password
@@ -60,4 +60,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
