@@ -1,12 +1,8 @@
 class RequestsController < ApplicationController
-  access all: [:index, :show, :new, :create, :destroy], user: [:index, :show, :new, :create, :destroy], provider: :all
+  before_action :authenticate_user!
+
   def index
-    @requests = Request.all.where(user_id: current_user)
-    if current_user.available_roles.include? :user
-      @request = Request.all.where(user_id: current_user)
-    else
-      @request = Request.all
-    end
+    @requests = Request.all.where(users_id: current_user)
   end
 
   def new
@@ -17,7 +13,7 @@ class RequestsController < ApplicationController
     @request = Request.new(request_params)
     if @request.save
       redirect_to requests_path, notice: "Your request was saved"
-    else 
+    else
       flash[:alert] = "Error! Failed to create a new request! Please try again."
       redirect_to root_path
     end

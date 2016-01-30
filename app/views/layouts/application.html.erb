@@ -16,8 +16,10 @@
   <div class="nav-wrapper">
     <a href="/"><img src="/assets/TowSmith.png" alt="TowSmith" class="logotow brand-logo center" /></a>
     <ul id="nav" class="right">
-        <li class="left"><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+      <% if current_user %>
+        <li class="left"><%= link_to('Logout', destroy_user_session_path(current_user), :method => :delete) %></li>
         <li class="right"><%= link_to('Edit Profile', edit_user_registration_path) %></li>
+      <% end %>
     </ul>
 
   </div>
