@@ -1,8 +1,4 @@
 %h1 Requests Index
-/ Dropdown Trigger
-%a.dropdown-button.btn{"data-activates" => "dropdown1", :href => "#"} Pending Requests
-/ Dropdown Structure
-%ul#dropdown1.dropdown-content
 %br
 - if @requests.any?
   %ul
@@ -13,6 +9,23 @@
 - else
   %li
     No Requests Found
-
 %br
 = link_to 'New Request', new_request_path, class: "btn waves-effect waves-light"
+
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+
+
+
+-# / Dropdown Trigger
+-# %a.dropdown-button.btn{"data-activates" => "dropdown1", :href => "#"} Pending Requests
+-# / Dropdown Structure
+-# %ul#dropdown1.dropdown-content

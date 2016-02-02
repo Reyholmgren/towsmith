@@ -6,7 +6,7 @@ class RegistrationsController < Devise::RegistrationsController
       if @user.roles == 'provider'
         redirect_to providers_path
       else
-        redirect_to account_path(current_user)
+        redirect_to requests_path
       end
     else
       render :new

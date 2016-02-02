@@ -7,9 +7,9 @@
         <%= devise_error_messages! %>
 
         <div class="field">
-          <%= f.radio_button :roles, 'user' %>
+          <%= f.radio_button :roles, 'user', required: true %>
           <%= f.label :roles_user, 'Customer' %><br />
-          <%= f.radio_button :roles, 'provider' %>
+          <%= f.radio_button :roles, 'provider', required: true  %>
           <%= f.label :roles_provider, 'Provider' %><br />
         </div>
         <br />
