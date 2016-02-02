@@ -30,7 +30,6 @@
     %p TowSmith is a service for individuals looking for a towing or car locksmith service in one place. It’s mobile connivence brings you peace of mind in a stressful situation.
 %br
 %div.center
-  - if current_user.roles == 'provider'
-    = link_to 'Get Started', providers_path, class: "btn-large waves-effect waves-light getstarted center"
-  - else
-    = link_to 'Get Started', requests_path, class: "btn-large waves-effect waves-light getstarted center"
+  = link_to 'Get Started for Customers', requests_path, class: "btn-large waves-effect waves-light getstarted center"
+
+  = link_to 'Get Started for Providers', providers_path, class: "btn-large waves-effect waves-light getstarted center"

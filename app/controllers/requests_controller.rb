@@ -1,7 +1,8 @@
 class RequestsController < ApplicationController
-
+  before_action :authenticate_user!
   def index
     @requests = Request.all.where(users_id: current_user)
+    @providers = User.where(roles: 'provider')
   end
 
   def new

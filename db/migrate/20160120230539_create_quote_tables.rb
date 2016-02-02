@@ -3,7 +3,7 @@ class CreateQuoteTables < ActiveRecord::Migration
     create_table :quote_tables do |t|
       t.string :desc
       t.float :price
-      t.belongs_to :provider
+      t.belongs_to :user
 
       t.timestamps null: false
     end
