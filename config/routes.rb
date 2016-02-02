@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   resources :quote_tables
 
   post '/location', to: 'location#create'
+
+  # GET
+  get '/about', to: 'static#about'
 end

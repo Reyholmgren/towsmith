@@ -24,10 +24,13 @@ $(document).ready(function(){
 
     $('#locationbutton').click(function() {
      getLocation()
-      });
-  });
+    });
 
- $('.dropdown-button').dropdown({
+    $(".button-collapse").sideNav();
+
+    $('.slider').slider({full_width: true});
+
+    $('.dropdown-button').dropdown({
       inDuration: 300,
       outDuration: 225,
       constrain_width: false, // Does not change width of dropdown to that of the activator
@@ -35,6 +38,6 @@ $(document).ready(function(){
       gutter: 0, // Spacing from edge
       belowOrigin: false, // Displays dropdown below the button
       alignment: 'left' // Displays dropdown with edge aligned to the left of button
-    }
-  );
+    });
+  });
 

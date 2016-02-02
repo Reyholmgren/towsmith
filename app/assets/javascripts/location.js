@@ -25,10 +25,12 @@ function showPosition(position) {
 },
 function storeLocation(lat,lon) {
   $.ajax({
+    debugger;
     url: '/location',
     type: 'POST',
     data: { lat: lat, lon: lon }
     success: function() {
+
       // TODO: make an html 'Location Stored'
       }
     })

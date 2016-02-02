@@ -1,8 +1,36 @@
-%div.center.margindash 
+%div.slidertitle.z-depth-3
+  .slider
+    %ul.slides
+      %li
+        %img{:src => "http://lorempixel.com/580/250/nature/1"}
+          / random image
+          .caption.center-align
+            %h3 This is our big Tagline!
+            %h5.light.grey-text.text-lighten-3 Here's our small slogan.
+      %li
+        %img{:src => "http://lorempixel.com/580/250/nature/2"}
+          / random image
+          .caption.left-align
+            %h3 Left Aligned Caption
+            %h5.light.grey-text.text-lighten-3 Here's our small slogan.
+      %li
+        %img{:src => "http://lorempixel.com/580/250/nature/3"}
+          / random image
+          .caption.right-align
+            %h3 Right Aligned Caption
+            %h5.light.grey-text.text-lighten-3 Here's our small slogan.
+      %li
+        %img{:src => "http://lorempixel.com/580/250/nature/4"}
+          / random image
+          .caption.center-align
+            %h3 This is our big Tagline!
+            %h5.light.grey-text.text-lighten-3 Here's our small slogan.
+  %div.center.dashboardbox.white-text
+    %h5 What is TowSmith?!
+    %p TowSmith is a service for individuals looking for a towing or car locksmith service in one place. It’s mobile connivence brings you peace of mind in a stressful situation.
+%br
+%div.center
   - if current_user.roles == 'provider'
     = link_to 'Get Started', providers_path, class: "btn-large waves-effect waves-light getstarted center"
   - else
     = link_to 'Get Started', requests_path, class: "btn-large waves-effect waves-light getstarted center"
-%div.center.dashboardbox.z-depth-3.margindash.white-text
-  %h5 What is TowSmith?!
-  %p TowSmith is a service for individuals looking for a towing or car locksmith service in one place. It’s mobile connivence brings you peace of mind in a stressful situation.

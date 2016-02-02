@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -8,27 +10,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="keywords" content="footer, address, phone, icons" />
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-<head>
   <title>TowSmith</title>
 </head>
 <body>
-<nav>
-  <div class="nav-wrapper">
-    <a href="/"><img src="/assets/TowSmith.png" alt="TowSmith" class="logotow brand-logo center" /></a>
-    <ul id="nav" class="right">
-    <% if user_signed_in? %>
-      <% if current_user %>
-        <li class="right"><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
-        <li><%= link_to('Edit Profile', edit_user_registration_path) %></li>
-      <% end %>
-      <% if current_user.roles == 'provider' %>
-        <li><%= link_to('Your Quotes', quote_tables_path) %></li>
-      <% end %>
-    <% end %> 
-    </ul>
-
-  </div>
-</nav>
+<%= render 'layouts/navbar' %>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 <div class="container">
@@ -38,5 +23,6 @@
     </div>
   </div>
 </div>
+<%= render 'layouts/footer' %>
 </body>
 </html>
