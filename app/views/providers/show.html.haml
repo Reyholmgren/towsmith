@@ -6,7 +6,7 @@
   %p
     = quote.desc
 - if current_user.roles == 'provider' && current_user.id == @provider.id
-  = form_for @quote_table do |f|
+  = form_for @quote_tables do |f|
     = f.text_field :desc, placeholder: "ex. 0-5 miles"
     = f.number_field :price, placeholder: "ex. 30$"
     = f.submit 'Submit Quote', class: "btn waves-effect waves-light pad"
