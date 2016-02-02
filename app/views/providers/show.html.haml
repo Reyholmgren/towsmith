@@ -10,3 +10,5 @@
     = f.text_field :desc, placeholder: "ex. 0-5 miles"
     = f.number_field :price, placeholder: "ex. 30$"
     = f.submit 'Submit Quote', class: "btn waves-effect waves-light pad"
+- if current_user.roles == 'user' 
+  = link_to 'New Request', new_request_path, class: "btn waves-effect waves-light"
