@@ -1,10 +1,11 @@
 class QuoteTablesController < ApplicationController
+  before_action :authenticate_user!
   before_action :quote_table_find, only: [:edit, :update, :destroy]
   def index
     @quote_tables = QuoteTable.all.order(desc: :asc)
   end
 
-  def new 
+  def new
     @quote_table = QuoteTable.new
   end
 

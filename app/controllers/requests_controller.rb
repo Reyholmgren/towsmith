@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-
+  before_action :authenticate_user!
   def index
     @requests = Request.all.where(users_id: current_user)
   end

@@ -1,31 +1,38 @@
-%h1 Requests Index
-%br
-- if @requests.any?
-  %ul
-    - @requests.each do |request|
-      %li
-        = link_to request.title, request_path(request)
-        = request.created_at
-- else
-  %li
-    No Requests Found
-%br
-= link_to 'New Request', new_request_path, class: "btn waves-effect waves-light"
-
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-
-
-
--# / Dropdown Trigger
--# %a.dropdown-button.btn{"data-activates" => "dropdown1", :href => "#"} Pending Requests
--# / Dropdown Structure
--# %ul#dropdown1.dropdown-content
+%h3 Please Select a Provider
+%ul.collection
+  %li.collection-item.avatar
+    %img.circle{:alt => "", :src => "images/yuna.jpg"}
+      %span.title Title
+      %p
+        First Line
+        %br
+          Second Line
+      %a.secondary-content{:href => "#!"}
+        %i.material-icons grade
+  %li.collection-item.avatar
+    %i.material-icons.circle folder
+    %span.title Title
+    %p
+      First Line
+      %br
+        Second Line
+    %a.secondary-content{:href => "#!"}
+      %i.material-icons grade
+  %li.collection-item.avatar
+    %i.material-icons.circle.green insert_chart
+    %span.title Title
+    %p
+      First Line
+      %br
+        Second Line
+    %a.secondary-content{:href => "#!"}
+      %i.material-icons grade
+  %li.collection-item.avatar
+    %i.material-icons.circle.red play_arrow
+    %span.title Title
+    %p
+      First Line
+      %br
+        Second Line
+    %a.secondary-content{:href => "#!"}
+      %i.material-icons grade
