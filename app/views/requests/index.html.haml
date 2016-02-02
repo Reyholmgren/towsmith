@@ -1,31 +1,12 @@
-%h1 Requests Index
-%br
-- if @requests.any?
-  %ul
-    - @requests.each do |request|
-      %li
-        = link_to request.title, request_path(request)
-        = request.created_at
-- else
-  %li
-    No Requests Found
-%br
-= link_to 'New Request', new_request_path, class: "btn waves-effect waves-light"
-
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-
-
-
--# / Dropdown Trigger
--# %a.dropdown-button.btn{"data-activates" => "dropdown1", :href => "#"} Pending Requests
--# / Dropdown Structure
--# %ul#dropdown1.dropdown-content
+%h3 Please Select a Provider
+%ul.collection
+  - @providers.each do |provider|
+    %li.collection-item.avatar
+      %i.material-icons.circle directions_car
+      %span.title
+        = provider.first_name
+        = provider.last_name
+      %p
+        = provider.phone
+      %p
+        = link_to 'View Profile', provider_path(provider)

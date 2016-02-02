@@ -40,9 +40,9 @@ ActiveRecord::Schema.define(version: 20160201231130) do
   create_table "quote_tables", force: :cascade do |t|
     t.string   "desc"
     t.float    "price"
-    t.integer  "provider_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "quotes", force: :cascade do |t|
