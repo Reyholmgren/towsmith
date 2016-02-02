@@ -16,10 +16,15 @@
   <div class="nav-wrapper">
     <a href="/"><img src="/assets/TowSmith.png" alt="TowSmith" class="logotow brand-logo center" /></a>
     <ul id="nav" class="right">
+    <% if user_signed_in? %>
       <% if current_user %>
-        <li class="left"><%= link_to('Logout', destroy_user_session_path(current_user), :method => :delete) %></li>
-        <li class="right"><%= link_to('Edit Profile', edit_user_registration_path) %></li>
+        <li class="right"><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+        <li><%= link_to('Edit Profile', edit_user_registration_path) %></li>
       <% end %>
+      <% if current_user.roles == 'provider' %>
+        <li><%= link_to('Your Quotes', quote_tables_path) %></li>
+      <% end %>
+    <% end %> 
     </ul>
 
   </div>

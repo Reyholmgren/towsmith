@@ -1,1 +1,11 @@
-test
+%h1 Provider Index
+%br
+- if @requests.any?
+  %ul
+    - @requests.each do |request|
+      %li
+        = link_to request.title, request_path(request)
+        = request.created_at
+- else
+  %li
+    No Requests Found

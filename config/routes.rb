@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root "dashboard#index"
   resources :requests
   resources :providers
+  resources :quote_tables
 
   post '/location', to: 'location#create'
 end

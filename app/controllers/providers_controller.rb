@@ -1,5 +1,5 @@
 class ProvidersController < ApplicationController
   def index
-    binding.pry
+    @requests = Request.all.where(user_id: current_user)
   end
 end
