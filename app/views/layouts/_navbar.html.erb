@@ -9,6 +9,10 @@
       <% if current_user.roles == 'provider' %>
         <li><%= link_to('Your Quotes', quote_tables_path) %></li>
       <% end %>
+      <% if current_user.roles == 'user' %>
+        <li><%= link_to('Your Requests', requests_path, :method => :get) %></li>
+        <li><%= link_to('New Request', new_request_path, :method => :get) %></li>
+      <% end %>
       <% if current_user %>
         <li><%= link_to('Edit Profile', edit_user_registration_path) %></li>
         <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
@@ -19,6 +23,10 @@
     <% if user_signed_in? %>
       <% if current_user.roles == 'provider' %>
         <li><%= link_to('Your Quotes', quote_tables_path) %></li>
+      <% end %>
+      <% if current_user.roles == 'user' %>
+        <li><%= link_to('Your Requests', requests_path, :method => :get) %></li>
+        <li><%= link_to('New Request', new_request_path, :method => :get) %></li>
       <% end %>
       <% if current_user %>
         <li><%= link_to('Edit Profile', edit_user_registration_path) %></li>

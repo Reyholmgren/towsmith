@@ -1,7 +1,6 @@
 = form_for @request do |f|
   = f.text_field :title, placeholder: "Describe your problem" 
   = f.text_area :info, placeholder: "Feel free to add any additional info"
-  = f.text_field :phone, placeholder: "Phone Number"
   = f.submit class: "btn waves-effect waves-light pad"
 %br
 %button.btn.btn.waves-effect.waves-light#locationbutton Get Location

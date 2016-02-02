@@ -64,7 +64,6 @@ class Dashboard extends React.Component {
                         <div className="collapsible-body">
                           <form>
                             <input placeholder="Brief Description" ref='title' autoFocus={true} />  
-                            <input placeholder="Phone Number" ref='info' autoFocus={false} />
                             <input placeholder="Make Of Car" ref='newRequest' autoFocus={false} />
                             <input placeholder="Model Of Car" ref='newRequest' autoFocus={false} />
                             <input placeholder="Year Of Car" ref='newRequest' autoFocus={false} />
@@ -81,7 +80,6 @@ class Dashboard extends React.Component {
                         <div className="collapsible-body">
                           <form>
                             <input placeholder="Key Description(ie Manual, Transponder Chip, or Remote Control)" ref='newRequest' autoFocus={true} />  
-                            <input placeholder="Phone Number" ref='newRequest' autoFocus={false} />
                             <input placeholder="Make Of Car" ref='newRequest' autoFocus={false} />
                             <input placeholder="Model Of Car" ref='newRequest' autoFocus={false} />
                             <input placeholder="Year Of Car" ref='newRequest' autoFocus={false} />
@@ -95,7 +93,6 @@ class Dashboard extends React.Component {
                           <form>
                             <input placeholder="Why do you need a Tow?" ref='newRequest' autoFocus={true} /> 
                             <input placeholder="Key Description(ie Manual, Transponder Chip, or Remote Control)" ref='newRequest' autoFocus={false} />  
-                            <input placeholder="Phone Number" ref='newRequest' autoFocus={false} />
                             <input placeholder="Make Of Car" ref='newRequest' autoFocus={false} />
                             <input placeholder="Model Of Car" ref='newRequest' autoFocus={false} />
                             <input placeholder="Year Of Car" ref='newRequest' autoFocus={false} />
