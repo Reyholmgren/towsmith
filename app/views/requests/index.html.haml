@@ -1,15 +1,32 @@
 %div.container
-%div.row
-  %div.col.s12.m10.offset-m1
-    %h2 Your Requests
-    - if @requests.any?
-      %div.collection
-        - @requests.each do |request|
-          %dic.collection-item
-            = link_to request.title, request_path(request)
-            = request.created_at
-    - else
-    %br
-      No Request(s) Found
-    %br
-      = link_to 'New Request', new_request_path, class: "btn waves-effect waves-light"
+  %div.row
+    %div.col.s12.m8.offset-m1
+      %h3 
+        #{current_user.first_name} #{current_user.last_name}'s Requests
+      %hr
+      %table
+        %thead
+          %tr
+            %th Issue
+            %th Description
+            %th Customer Name
+            %th Phone Number
+            %th
+            %th
+        %tbody
+          - if @requests.any?
+            - @requests.each do |request|
+              %tr
+                %td
+                  = request.title
+                %td
+                  = request.info
+                %td 
+                  First Name Last Name TODO
+                %td
+                  = request.phone
+                %td
+                  = link_to 'Edit', edit_request_path(request), class: "btn waves-effect waves-light"
+                %td
+                  = link_to 'Delete', request_path(request), method: :delete, data: { confirm: "Are you sure?"}, class: "btn waves-effect waves-light"
+
