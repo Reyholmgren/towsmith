@@ -1,4 +1,5 @@
 = form_for @quote_table do |f|
   = f.text_field :desc, placeholder: "ex. 0-5 miles"
   = f.number_field :price, placeholder: "ex. 30$"
+  = f.hidden_field :user_id, value: current_user.id
   = f.submit 'Submit Quote', class: "btn waves-effect waves-light pad"

@@ -2,7 +2,7 @@ class QuoteTablesController < ApplicationController
   before_action :authenticate_user!
   before_action :quote_table_find, only: [:edit, :update, :destroy]
   def index
-    @quote_tables = QuoteTable.all.order(desc: :asc)
+    @quote_tables = QuoteTable.where(user_id: current_user.id)
   end
 
   def new
@@ -47,6 +47,6 @@ class QuoteTablesController < ApplicationController
     end
 
     def quote_table_params
-      params.require(:quote_table).permit(:desc, :price)
+      params.require(:quote_table).permit(:desc, :price, :user_id)
     end
 end

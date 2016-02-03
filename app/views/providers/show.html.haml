@@ -2,13 +2,35 @@
   = @provider.first_name
   = @provider.last_name
 %hr
-- @quote_tables.each do |quote|
-  %p
-    = quote.desc
+%table
+  %thead
+    %tr
+      %th Distance (Miles)
+      %th Price
+  %tbody
+    - if @quote_tables.any?
+      - @quote_tables.each do |quote|
+        %tr
+          %td
+            = quote.desc
+          %td
+            = quote.price
 - if current_user.roles == 'provider' && current_user.id == @provider.id
-  = form_for @quote_tables do |f|
-    = f.text_field :desc, placeholder: "ex. 0-5 miles"
-    = f.number_field :price, placeholder: "ex. 30$"
-    = f.submit 'Submit Quote', class: "btn waves-effect waves-light pad"
+  %h4 Current Requests
+  - if @customer_requests.any?
+    %table
+      %thead
+        %tr
+          %th Title
+          %th Description
+      %tbody
+        - if @customer_requests.any?
+          - @customer_requests.each do |request|
+            %tr
+              %td
+                = request.title
+              %td
+                = request.info
 - if current_user.roles == 'user'
+  %h4 New Request
   = render 'requestform'

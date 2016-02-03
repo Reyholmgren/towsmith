@@ -3,15 +3,10 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.new(sign_up_params)
     if @user.save
-      if @user.roles == 'provider'
-        redirect_to providers_path
-      else
-        redirect_to requests_path
-      end
+      redirect_to providers_path
     else
       render :new
     end
-
   end
 
 

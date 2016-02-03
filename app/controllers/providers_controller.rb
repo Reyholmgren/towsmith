@@ -1,5 +1,5 @@
 class ProvidersController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!
 
   def index
     @requests = Request.all.where(user_id: current_user)
@@ -8,13 +8,14 @@ class ProvidersController < ApplicationController
 
   def show
     @provider = User.find(params[:id])
-    @quote_tables = QuoteTable.where(user_id: @provider.id)
+    @quote_tables = QuoteTable.where(user_id: @provider.id )
+    @quote_table = QuoteTable.new
     @request = Request.new
+    @customer_requests = Request.where(provider_id: @provider.id)
   end
 
   def create
     @request = Request.new(request_params)
-    binding.pry
     if @request.save
       redirect_to requests_path, notice: "Your request was saved"
     else

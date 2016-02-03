@@ -1,14 +1,14 @@
-%h3 Edit Quotes Page
+%h3 Quotes Page
 %hr
-%table
-  %thead
-    %tr
-      %th Distance (Miles)
-      %th Price
-      %th
-      %th
-  %tbody
-    - if @quote_tables.any?
+- if @quote_tables.any?
+  %table
+    %thead
+      %tr
+        %th Distance (Miles)
+        %th Price
+        %th
+        %th
+    %tbody
       - @quote_tables.each do |quote|
         %tr
           %td
@@ -19,5 +19,7 @@
             = link_to 'Edit', edit_quote_table_path(quote), class: "btn waves-effect waves-light"
           %td
             = link_to 'Delete', quote_table_path(quote), method: :delete, data: { confirm: "Are you sure?"}, class: "btn waves-effect waves-light"
+- else
+  %h4 No Quotes Created
 %br
 = link_to 'New Quote', new_quote_table_path, class: "btn waves-effect waves-light"
