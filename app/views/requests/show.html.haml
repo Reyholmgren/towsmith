@@ -10,6 +10,9 @@
           = @request.phone
       .card-action
         %br
-          = button_to 'Edit Request', edit_request_path, method: :get, class: 'btn waves-effect waves-light'
-        %br
-          = button_to 'Delete this request?', @request, method: :delete, data: { confirm: "Are you sure?"}, class: 'btn waves-effect waves-light'
+          - if current_user.role = 'provider'
+            # TODO checkmark for accept and compeleted for provider
+          - else
+            # TODO indicator for pending and completed for user
+            = button_to 'Edit Request', edit_request_path, method: :get, class: 'btn waves-effect waves-light'
+            = button_to 'Delete this request?', @request, method: :delete, data: { confirm: "Are you sure?"}, class: 'btn waves-effect waves-light'
