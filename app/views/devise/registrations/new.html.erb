@@ -1,54 +1,55 @@
 <div class="container">
   <div class="row">
     <div class="col s12 m8 offset-m2">
-      <h2>Sign up</h2>
+      <h2 class="center">Sign Up</h2>
+      <div class="card-panel">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
 
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
+          <div class="field">
+            <%= f.radio_button :roles, 'user', required: true %>
+            <%= f.label :roles_user, 'Customer' %><br />
+            <%= f.radio_button :roles, 'provider', required: true  %>
+            <%= f.label :roles_provider, 'Provider' %><br />
+          </div>
+          <br />
+          <br />
+          <div class="field">
+            <%= f.label :first_name %><br />
+            <%= f.text_field :first_name, autofocus: true, required: true %>
 
-        <div class="field">
-          <%= f.radio_button :roles, 'user', required: true %>
-          <%= f.label :roles_user, 'Customer' %><br />
-          <%= f.radio_button :roles, 'provider', required: true  %>
-          <%= f.label :roles_provider, 'Provider' %><br />
-        </div>
-        <br />
-        <br />
-        <div class="field">
-          <%= f.label :first_name %><br />
-          <%= f.text_field :first_name, autofocus: true, required: true %>
+            <%= f.label :last_name %><br />
+            <%= f.text_field :last_name, required: true %>
+          </div>
 
-          <%= f.label :last_name %><br />
-          <%= f.text_field :last_name, required: true %>
-        </div>
+          <div class="field">
+            <%= f.label :phone %><br />
+            <%= f.telephone_field :phone, required: true %>
+          </div>
 
-        <div class="field">
-          <%= f.label :phone %><br />
-          <%= f.telephone_field :phone, required: true %>
-        </div>
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, required: true %>
+          </div>
 
-        <div class="field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, required: true %>
-        </div>
+          <div class="field">
+            <%= f.label :password %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "off" %>
+          </div>
 
-        <div class="field">
-          <%= f.label :password %>
-          <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-          <% end %><br />
-          <%= f.password_field :password, autocomplete: "off" %>
-        </div>
-
-        <div class="field">
-          <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "off" %>
-        </div>
-        <br />
-        <div class="actions">
-          <%= f.submit "Sign up", class: 'btn waves-effect waves-light' %>
-        </div>
-      <% end %>
+          <div class="field">
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "off" %>
+          </div>
+          <br />
+          <div class="actions">
+            <%= f.submit "Sign up", class: 'btn waves-effect waves-light' %>
+          </div>
+        <% end %>
+      </div>
       <br />
       <%= render "devise/shared/links" %>
     </div>

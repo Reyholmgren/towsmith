@@ -5,10 +5,11 @@
     - if @requests.any?
       %div.collection
         - @requests.each do |request|
-          %a.collection-item
+          %dic.collection-item
             = link_to request.title, request_path(request)
             = request.created_at
     - else
-      %div.collection
-        %div.collection-item
-          No Request(s) Found
+    %br
+      No Request(s) Found
+    %br
+      = link_to 'New Request', new_request_path, class: "btn waves-effect waves-light"

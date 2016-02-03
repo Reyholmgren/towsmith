@@ -1,9 +1,9 @@
 <nav>
   <div class="nav-wrapper">
-    <a href="/"><img src="/assets/TowSmith.png" alt="TowSmith" class="logotow brand-logo center" /></a>
     <% if user_signed_in? %>
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <% end %>
+    <a href="/" class="brand-logo logotow"><img src="/assets/TowSmith.png" alt="TowSmith" class="logotow responsive-img" /></a>
     <ul id="nav" class="right hide-on-med-and-down">
     <% if user_signed_in? %>
       <% if current_user.roles == 'provider' %>

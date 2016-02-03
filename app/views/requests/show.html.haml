@@ -1,9 +1,15 @@
-%h1 Your Request
-%h4
-  = @request.title
-%p
-  = @request.info
-%br
-= button_to 'Edit Request', edit_request_path, method: :get, class: 'btn waves-effect waves-light'
-%br
-= button_to 'Delete this request?', @request, method: :delete, data: { confirm: "Are you sure?"}, class: 'btn waves-effect waves-light'
+.container
+  .row
+    .col.s12.m4.offset-m4
+      .card-content.requestshow
+        %h4.card-title
+          = @request.title
+        %p
+          = @request.phone
+        %p
+          = @request.info
+      .card-action
+        %br
+          = button_to 'Edit Request', edit_request_path, method: :get, class: 'btn waves-effect waves-light'
+        %br
+          = button_to 'Delete this request?', @request, method: :delete, data: { confirm: "Are you sure?"}, class: 'btn waves-effect waves-light'

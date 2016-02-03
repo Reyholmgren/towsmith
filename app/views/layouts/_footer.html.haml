@@ -1,10 +1,11 @@
-%footer.footer-distributed
+%footer.footer-distributed.shorten
   .footer-left
-    %a{href: "http://www.devpointlabs.com/", target: "_blank"}
-      %img{src: "http://www.devpointlabs.com/img/DPL-navbar-purple.gif", style: "height: 50px; width: 300px; margin-top: 15px;"}
-    %p.grey-text.text-lighten-4{style: 'padding-top: 0;'}
-      Thank you to 
-      %a.footer-link{href: "http://www.devpointlabs.com/", target: "blank", style: "color: #B1AB6F;"}DevPoint Labs
+    %h5.white-text
+      Thank you
+      %br
+      %a{href: "http://www.devpointlabs.com/", target: "_blank"}
+        %img.devpoint{src: "http://www.devpointlabs.com/img/DPL-navbar-purple.gif"}
+      %br
       %br
       for all of the support and guidance!
     %p.footer-company-name © 2016 TowSmith
@@ -13,14 +14,14 @@
     %a{href: "/"}
       %img.footerlogotow.brand-logo{:alt => "TowSmith", :src => "/assets/TowSmith.png"}
     %p.footer-company-about
-      %span About the company
-      Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+      %span About TowSmith
+      TowSmith is a service for individuals looking for a towing or car locksmith service in one place. Its mobile convenience brings you peace of mind in a stressful situation.
+      %br
+      %a{:href => "/about"} Meet the team
     .footer-icons
-      %a{:href => "#"}
-        %i.fa.fa-facebook
-      %a{:href => "#"}
+      %a{:href => "mailto:towsmithapp@gmail.com"}
+        %i.fa.fa-envelope
+      %a{:href => "https://twitter.com/towsmithapp"}
         %i.fa.fa-twitter
-      %a{:href => "#"}
-        %i.fa.fa-linkedin
-      %a{:href => "#"}
+      %a{:href => "https://github.com/Reyholmgren/towsmith"}
         %i.fa.fa-github
