@@ -34,6 +34,20 @@
             <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
             <%= f.password_field :current_password, autocomplete: "off" %>
           </div>
+          <div class="field">
+            <%= f.radio_button :roles, 'user', required: true %>
+            <%= f.label :roles_user, 'Customer' %><br />
+            <%= f.radio_button :roles, 'provider', required: true  %>
+            <%= f.label :roles_provider, 'Provider' %><br />
+          </div>
+          <br />
+          <div class="field hide" id="towsmithunique">
+            <%= f.check_box :tow %>
+            <%= f.label :tow, 'Tow Company' %><br />
+            <%= f.check_box :smith %>
+            <%= f.label :smith, 'Locksmith' %><br />
+          </div>
+          <br />
           <div class="actions btn waves-light waves-effect">
             <%= f.submit "Update" %>
           </div>

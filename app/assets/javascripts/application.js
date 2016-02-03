@@ -26,6 +26,14 @@ $(document).ready(function(){
      getLocation()
     });
 
+    $("#user_roles_provider").click(function() {
+      $("#towsmithunique").removeClass("hide")
+    })
+
+    $("#user_roles_user").click(function() {
+      $("#towsmithunique").addClass("hide")
+    })
+
     $(".button-collapse").sideNav();
 
     $('.slider').slider({full_width: true});

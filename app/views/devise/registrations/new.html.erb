@@ -5,13 +5,6 @@
       <div class="card-panel">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= devise_error_messages! %>
-
-          <div class="field">
-            <%= f.radio_button :roles, 'user', required: true %>
-            <%= f.label :roles_user, 'Customer' %><br />
-            <%= f.radio_button :roles, 'provider', required: true  %>
-            <%= f.label :roles_provider, 'Provider' %><br />
-          </div>
           <br />
           <br />
           <div class="field">
@@ -45,13 +38,29 @@
             <%= f.password_field :password_confirmation, autocomplete: "off" %>
           </div>
           <br />
+          <div class="field">
+            <%= f.radio_button :roles, 'user', required: true %>
+            <%= f.label :roles_user, 'Customer' %><br />
+            <%= f.radio_button :roles, 'provider', required: true  %>
+            <%= f.label :roles_provider, 'Provider' %><br />
+          </div>
+          <br />
+          <div class="field hide" id="towsmithunique">
+            <%= f.check_box :tow %>
+            <%= f.label :tow, 'Tow Company' %><br />
+            <%= f.check_box :smith %>
+            <%= f.label :smith, 'Locksmith' %><br />
+          </div>
+          <br />
           <div class="actions">
             <%= f.submit "Sign up", class: 'btn waves-effect waves-light' %>
           </div>
         <% end %>
       </div>
       <br />
-      <%= render "devise/shared/links" %>
+      <div class="center">
+        <%= render "devise/shared/links" %>
+      </div>
     </div>
   </div>
 </div>

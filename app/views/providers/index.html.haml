@@ -14,4 +14,16 @@
             %p
               = provider.phone
             %p
+              - if provider.tow == true
+                %i.material-icons
+                  directions_car
+              - if provider.smith == true
+                %i.material-icons
+                  vpn_key
+            %p
               = link_to 'View Profile', provider_path(provider)
+
+%br
+%br
+%br
+%br
