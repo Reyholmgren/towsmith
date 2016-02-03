@@ -2,13 +2,27 @@
 %div.row
   %div.col.s12.m10.offset-m1
     %h2 Your Requests
-    - if @requests.any?
-      %div.collection
-        - @requests.each do |request|
-          %a.collection-item
-            = link_to request.title, request_path(request)
-            = request.created_at
-    - else
-      %div.collection
-        %div.collection-item
-          No Request(s) Found
+  - if @customer_requests.any?
+    %table
+      %thead
+        %tr
+          %th Title
+          %th Description
+          %th Customer's Name
+          %th Customer's Phone
+      %tbody
+        - if @customer_requests.any?
+          %div.collection
+            - @customer_requests.each do |request|
+              %a.collection-item
+              %tr
+                %td
+                  = link_to request.title, request_path(request)
+                %td
+                  = request.info
+                %td
+                %td
+  - else
+    %div.collection
+      %div.collection-item
+        No Request(s) Found

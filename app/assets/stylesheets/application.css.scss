@@ -14,7 +14,7 @@
  *= require_self
  */
 @import "materialize/components/color";
-$primary-color: color("green", "lighten-2") !default;
+$primary-color: color("teal", "base") !default;
 $primary-color-light: false !default;
 $primary-color-dark: false !default;
 @if not $primary-color-light {
@@ -23,81 +23,88 @@ $primary-color-dark: false !default;
 @if not $primary-color-dark {
   $primary-color-dark: darken($primary-color, 15%);
 }
-$secondary-color: color("teal", "lighten-3") !default;
+$secondary-color: color("blue", "darken-3") !default;
 @import 'materialize';
-
-h1 {
+h1, h2 {
   color: #6c6d6d;
 }
-
 a {
-  color: #81c784;
+  color: #009688;
 }
-
 textarea {
   padding-left: 3px;
 }
-
-
+nav ul a {
+  color: #ffffff;
+}
+​
+.faces {
+  height: 220px;
+  width: 220px;
+}
+​
+​
+/*About Us*/
+.aboutline {
+  border-left: 5px solid #616262; 
+  margin-top: 40px;
+  padding-left: 50px;
+}
+​
+/*DevPoint Shout Out*/
+.devpoint {
+  height: 50px; 
+  width: 300px; 
+  margin-top: 15px;
+}
+​
 .site {
   display: table;
   height: 100%;
   width: 100%;
 }
-
 .container {
   width: 100% !important;
 }
-
 .divider {
   height: 2px;
   overflow: hidden;
   background-color: #000000;
 }
-
-.dropdown-content {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 8px;
-  padding-right: 8px;
-}
-
 /* nav */
-
 .nav-wrapper {
-	padding-top: 8px;
   top: 0 !important;
   position: fixed;
-  background-color: #dfefdf;
-  height: 150%;
+  height: 100%;
 }
-
-nav {
-	height: 75px;
-}
-
-nav ul a {
-	color: #6c6d6d;
-}
-
 /* Get Started Button */
-
 .getstarted {
-  margin-top: 50px;
-  padding: 25px 50px 75px 50px;
-	font-size: 40px;
-	background-color: #81c784;
-	border-radius: 15px;
-  box-shadow: 0 2px 5px 0 rgba(129, 199, 132, 0.5), 0 2px 10px 0 rgba(129, 199, 132, 0.5);
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 25px;
+  padding-bottom: 75px;
+  background-color: #1565c0;
+  font-size: 40px;
+  border-radius: 15px;
+  box-shadow: 0 2px 5px 0 rgba(21, 101, 192, 0.5), 0 2px 10px 0 rgba(21, 101, 192, 0.5);
 }
-
+.getstarted:hover {
+  background-color: rgba(21, 101, 192, 0.75);
+  box-shadow: 0 2px 5px 0 rgba(21, 101, 192, 0.5), 0 2px 10px 0 rgba(21, 101, 192, 0.5);
+}
 /* Logo */
-
 .logotow {
-	height: 64px;
-	text-align: center;
+  display: block;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
-
+​
+/*Footer*/
+.shorten {
+  padding: 30px 50px 30px 50px;
+}
+​
 .footerlogotow {
   height: 50px;
 }

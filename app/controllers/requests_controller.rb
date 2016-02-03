@@ -3,6 +3,7 @@ class RequestsController < ApplicationController
   def index
     @requests = Request.all.where(user_id: current_user.id)
     @providers = User.where(roles: 'provider')
+    @customer_requests = Request.where(provider_id: current_user.id)
   end
 
   def new

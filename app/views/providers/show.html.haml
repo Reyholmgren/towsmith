@@ -23,14 +23,20 @@
         %tr
           %th Title
           %th Description
+          %th Customer's Name
+          %th Customer's Phone
       %tbody
         - if @customer_requests.any?
-          - @customer_requests.each do |request|
-            %tr
-              %td
-                = request.title
-              %td
-                = request.info
+          %div.collection
+            - @customer_requests.each do |request|
+              %a.collection-item
+              %tr
+                %td
+                  = link_to request.title, request_path(request)
+                %td
+                  = request.info
+                %td
+                %td
 - if current_user.roles == 'user'
   %h4 New Request
   = render 'requestform'

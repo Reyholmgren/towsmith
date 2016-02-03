@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :requests
   resources :providers
   resources :quote_tables
+  resources :users
 
   post '/location', to: 'location#create'
 
