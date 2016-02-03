@@ -1,7 +1,11 @@
 class RequestsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @requests = Request.all.where(user_id: current_user.id)
+    if current_user.roles = 'provider'
+      @requests = Request.where(provider_id: current_user.id)
+    else
+      @requests = Request.all.where(user_id: current_user.id)
+    end
     @providers = User.where(roles: 'provider')
   end
 
@@ -26,7 +30,7 @@ class RequestsController < ApplicationController
   def update
     @request = Request.find(params[:id])
     if @request.update(request_params)
-      redirect_to request_path(@request)
+      redirect_to requests_path
     else
       render :edit
     end
@@ -45,7 +49,7 @@ class RequestsController < ApplicationController
 
   private
     def request_params
-      params.require(:request).permit(:title, :info, :phone, :user_id, :provider_id)
+      params.require(:request).permit(:title, :info, :phone, :user_id, :provider_id, :make, :model, :model_year)
     end
 
 end

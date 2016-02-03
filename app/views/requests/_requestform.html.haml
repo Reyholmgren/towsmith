@@ -1,12 +1,19 @@
-= form_for @request do |f|
-  = f.text_field :phone, placeholder: "Contact Phone Number"
-  = f.text_field :title, placeholder: "Describe your problem"
-  = f.text_area :info, placeholder: "Feel free to add any additional info"
-  = f.hidden_field :user_id, :value => current_user.id
-  = f.submit class: "btn waves-effect waves-light pad"
-%br
-%button.btn.btn.waves-effect.waves-light#locationbutton Get Location
-%br
-%div#mapholder.center.map
-
-= link_to "Back", requests_path
+.container
+  .row
+    .col.s12.m8.offset-m2
+      .card-panel
+        = form_for @request do |f|
+          = f.text_field :phone, placeholder: "Contact Phone Number"
+          = f.text_field :title, placeholder: "Describe your problem"
+          = f.text_area :info, placeholder: "Feel free to add any additional info"
+          = f.number_field :model_year, placeholder: "Model Year"
+          = f.text_field :make, placeholder: "Car Make"
+          = f.text_field :model, placeholder: "Car Model"
+          = f.hidden_field :user_id, :value => current_user.id
+          = f.hidden_field :provider_id, :value => @request.provider_id
+          = f.submit class: "btn waves-effect waves-light pad right"
+        %button.btn.btn.waves-effect.waves-light#locationbutton Get Location
+      %br
+      %br
+      %div#mapholder.center.map
+        = link_to "Back", requests_path

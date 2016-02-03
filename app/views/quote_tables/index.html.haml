@@ -1,6 +1,6 @@
 %div.container
   %div.row
-    %div.col.s12.m8.offset-m1
+    %div.col.s12.m8.offset-m2
       %h3 Quotes
       %hr
       %table
@@ -22,5 +22,10 @@
                   = link_to 'Edit', edit_quote_table_path(quote), class: "btn waves-effect waves-light"
                 %td
                   = link_to 'Delete', quote_table_path(quote), method: :delete, data: { confirm: "Are you sure?"}, class: "btn waves-effect waves-light"
-    %div.col.s12.m2.quotepad
-      = link_to 'New Quote', new_quote_table_path, class: "btn waves-effect waves-light"
+      %div
+        = link_to 'New Quote', new_quote_table_path, class: "btn waves-effect waves-light"
+%br
+%br
+%br
+%br
+%br

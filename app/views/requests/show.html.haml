@@ -5,9 +5,9 @@
         %h4.card-title
           = @request.title
         %p
-          = @request.phone
-        %p
           = @request.info
+        %p
+          = @request.phone
       .card-action
         %br
           = button_to 'Edit Request', edit_request_path, method: :get, class: 'btn waves-effect waves-light'

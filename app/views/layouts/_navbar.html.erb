@@ -7,6 +7,7 @@
     <ul id="nav" class="right hide-on-med-and-down">
     <% if user_signed_in? %>
       <% if current_user.roles == 'provider' %>
+        <li><%= link_to 'Your Requests', requests_path %></li>
         <li><%= link_to 'Your Quotes', quote_tables_path %></li>
       <% end %>
       <% if current_user.roles == 'user' %>
@@ -14,7 +15,7 @@
         <li><%= link_to 'New Request', providers_path %></li>
       <% end %>
       <% if current_user %>
-        <li><%= link_to('Edit Profile', edit_user_registration_path) %></li>
+        <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
         <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
       <% end %>
     <% end %> 
@@ -22,14 +23,15 @@
     <ul class="side-nav" id="mobile-demo">
     <% if user_signed_in? %>
       <% if current_user.roles == 'provider' %>
-        <li><%= link_to('Your Quotes', quote_tables_path) %></li>
+        <li><%= link_to 'Your Requests', requests_path %></li>
+        <li><%= link_to 'Your Quotes', quote_tables_path %></li>
       <% end %>
       <% if current_user.roles == 'user' %>
         <li><%= link_to 'Your Requests', requests_path %></li>
         <li><%= link_to 'New Request', providers_path %></li>
       <% end %>
       <% if current_user %>
-        <li><%= link_to('Edit Profile', edit_user_registration_path) %></li>
+        <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
         <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
       <% end %>
     <% end %> 
