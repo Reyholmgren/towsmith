@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/about', to: "staticpages#about"
   devise_for :users, :controllers => { registrations: 'registrations' }
   root "dashboard#index"
   resources :requests
@@ -7,6 +8,4 @@ Rails.application.routes.draw do
 
   post '/location', to: 'location#create'
 
-  # GET
-  get '/about', to: 'static#about'
 end
