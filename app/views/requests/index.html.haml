@@ -4,33 +4,63 @@
       %h3 
         #{current_user.first_name} #{current_user.last_name}'s Requests
       %hr
-      %table
-        %thead
-          %tr
-            %th Issue
-            %th Description
-            %th Customer Name
-            %th Phone Number
-            %th
-            %th
-        %tbody
-          - if @requests.any?
-            - @requests.each do |request|
-              %tr
-                %td
-                  = request.title
-                %td
-                  = request.info
-                %td 
-                  First Name Last Name TODO
-                %td
-                  = request.phone
-                %td
-                  = link_to 'Edit', edit_request_path(request), class: "btn waves-effect waves-light"
-                %td
-                  = link_to 'Delete', request_path(request), method: :delete, data: { confirm: "Are you sure?" }, class: "btn waves-effect waves-light"
+      - if @requests.any? || @customer_requests.any?
+        %table
+          %thead
+            %tr
+              %th Issue
+              %th Description
+              %th Customer Name
+              %th Phone Number
+              %th Pending
+              %th Completed
+              %th
+              %th
+          %tbody
+            - if @requests.any?
+              %tbody
+                - @requests.each do |request|
+                  %tr
+                    %td
+                      = request.title
+                    %td
+                      = request.info
+                    %td 
+                      = current_user.first_name
+                      = current_user.last_name
+                    %td
+                      = request.phone
+                    %td
+                      - if request.accepted
+                        = fa_icon "check"
+                    %td
+                      - if request.completed
+                        = fa_icon "check"
+                    %td
+                      = link_to 'Edit', edit_request_path(request), class: "btn waves-effect waves-light"
+                    %td
+                      = link_to 'Delete', request_path(request), method: :delete, data: { confirm: "Are you sure?" }, class: "btn waves-effect waves-light"
+            - if @customer_requests.any?
+              %tbody
+                - @customer_requests.each do |request|
+                  %tr
+                    %td
+                      = request.title
+                    %td
+                      = request.info
+                    %td 
+                      First Name Last Name TODO
+                    %td
+                      = request.phone
+                    %td
+                      %input#provideraccept{type: 'checkbox', data: {request_id: request.id}, checked: request.accepted} 
+                      %label{for:'provideraccept'} Accept
+                    %td
+                      %input#providercompleted{type: 'checkbox', data: {request_id: request.id}, checked: request.completed} 
+                      %label{for:'providercompleted'} Complete
+      - else
+        %h4.center No Requests
 
-%br
 %br
 %br
 %br

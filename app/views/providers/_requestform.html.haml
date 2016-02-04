@@ -13,7 +13,8 @@
           = f.hidden_field :provider_id, :value => @provider.id
           = f.submit class: "btn waves-effect waves-light pad right"
         %button.btn.btn.waves-effect.waves-light#locationbutton Get Location
+        %div#mapholder.center.map
       %br
       %br
-      %div#mapholder.center.map
+      %div.center
         = link_to "Back", requests_path

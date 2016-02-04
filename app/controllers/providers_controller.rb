@@ -14,7 +14,6 @@ class ProvidersController < ApplicationController
 
   def create
     @request = Request.new(request_params)
-    binding.pry
     if @request.save
       redirect_to requests_path, notice: "Your request was saved"
     else

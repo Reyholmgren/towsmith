@@ -1,28 +1,40 @@
 %div.container
   %div.row
-    %div.col.s12.m10.offset-m1
-      %h1 All Providers 
-      %br
-      %h3 Please Select a Provider
-      %ul.collection
-        - @providers.each do |provider|
-          %li.collection-item.avatar
-            %i.material-icons.circle directions_car
-            %span.title
-              = provider.first_name
-              = provider.last_name
-            %p
-              = provider.phone
-            %p
-              - if provider.tow == true
-                %i.material-icons
-                  directions_car
-              - if provider.smith == true
-                %i.material-icons
-                  vpn_key
-            %p
-              = link_to 'View Profile', provider_path(provider)
+    %div.col.s12.m8.offset-m2
+      %h3 All Providers
+      - if @providers.any?
+        %ul.collection
+          - @providers.each do |provider|
+            %li.collection-item.avatar
+              %i.material-icons.circle directions_car
+              %span.title
+                = provider.first_name
+                = provider.last_name
+              %p
+                = provider.phone
+              %p
+                - if provider.tow == true
+                  %i.material-icons
+                    directions_car
+                - if provider.smith == true
+                  %i.material-icons
+                    vpn_key
+              %p
+                = link_to 'View Profile', provider_path(provider)
+      - else
+        %hr
+        %h4.center No Providers Available
 
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
 %br
 %br
 %br

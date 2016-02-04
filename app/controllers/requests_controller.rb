@@ -1,12 +1,9 @@
 class RequestsController < ApplicationController
   before_action :authenticate_user!
+  
   def index
-    if current_user.roles = 'provider'
-      @requests = Request.where(provider_id: current_user.id)
-    else
-      @requests = Request.all.where(user_id: current_user.id)
-    end
-    @providers = User.where(roles: 'provider')
+    @customer_requests = Request.where(provider_id: current_user.id)
+    @requests = Request.where(user_id: current_user.id)
   end
 
   def new
@@ -29,11 +26,16 @@ class RequestsController < ApplicationController
 
   def update
     @request = Request.find(params[:id])
-    if @request.update(request_params)
-      redirect_to requests_path
-    else
-      render :edit
+    respond_to do |format|
+      if @request.update(request_params)
+        format.html {redirect_to requests_path}
+        format.json {render json: @request}
+      else
+        format.html {render :edit}
+        format.json {render json: @request.errors.full_message.join(',')}
+      end
     end
+
   end
 
   def show
@@ -49,7 +51,7 @@ class RequestsController < ApplicationController
 
   private
     def request_params
-      params.require(:request).permit(:title, :info, :phone, :user_id, :provider_id, :make, :model, :model_year)
+      params.require(:request).permit(:title, :info, :phone, :user_id, :provider_id, :make, :model, :model_year, :roles, :completed, :accepted)
     end
 
 end

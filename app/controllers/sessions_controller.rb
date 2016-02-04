@@ -7,12 +7,12 @@ class SessionsController < ApplicationController
 		if @user && @user.authenticate(params[:password])
 			session[:user_id] = @user.user_id
 			if @user.roles == 'provider'
-				redirect_to providers_path
-			else
 				redirect_to requests_path
+			if @user.roles == 'user'
+				redirect_to providers_path
 			end
 		else
-			redirect_to '/login'
+			console.log('error')
 		end
 	end
 

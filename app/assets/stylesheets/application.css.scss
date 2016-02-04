@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+@import "font-awesome";
 @import "materialize/components/color";
 $primary-color: color("teal", "base") !default;
 $primary-color-light: false !default;

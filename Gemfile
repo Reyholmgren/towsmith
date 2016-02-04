@@ -33,6 +33,7 @@ gem 'haml-rails'
 gem 'react-rails'
 # puma webserver for eventual heroku push
 gem 'puma'
+gem "font-awesome-rails"
 
 gem 'cancancan', '~> 1.10'
 
