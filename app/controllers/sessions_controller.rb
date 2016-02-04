@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 			session[:user_id] = @user.user_id
 			if @user.roles == 'provider'
 				redirect_to requests_path
-			if @user.roles == 'user'
+			else
 				redirect_to providers_path
 			end
 		else

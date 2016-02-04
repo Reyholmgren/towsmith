@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-	access all: [:index, :show], user: [:index, :show], provider: :all
-	access [:all, :user] => [:show, :index]
 	def new
 		@user = User.new
 	end
