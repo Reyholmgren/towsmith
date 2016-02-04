@@ -11,6 +11,8 @@
           = f.text_field :model, placeholder: "Car Model"
           = f.hidden_field :user_id, :value => current_user.id
           = f.hidden_field :provider_id, :value => @provider.id
+          = f.hidden_field :first_name, :value => current_user.first_name
+          = f.hidden_field :last_name, :value => current_user.last_name
           = f.submit class: "btn waves-effect waves-light pad right"
         %button.btn.btn.waves-effect.waves-light#locationbutton Get Location
         %div#mapholder.center.map

@@ -24,6 +24,6 @@ class ProvidersController < ApplicationController
 
   private
     def request_params
-      params.require(:request).permit(:title, :provider_id, :info, :user_id)
+      params.require(:request).permit(:title, :provider_id, :info, :user_id, :first_name, :last_name)
     end
 end
