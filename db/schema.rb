@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(version: 20160203224831) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "providers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "type"
+    t.string   "phone"
+    t.integer  "ratings"
+    t.integer  "total_rating"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "quote_tables", force: :cascade do |t|
     t.string   "desc"
     t.float    "price"

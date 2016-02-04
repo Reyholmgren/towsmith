@@ -39,6 +39,7 @@ gem "font-awesome-rails"
 gem 'cancancan', '~> 1.10'
 
 
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -53,6 +54,12 @@ group :development, :test do
   gem 'byebug'
   gem 'pry'
   gem 'better_errors'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'database_cleaner'
+  gem 'simplecov'
+  gem 'factory_girl_rails'
+
 end
 
 group :development do

@@ -11,8 +11,8 @@
         <li><%= link_to 'Your Quotes', quote_tables_path %></li>
       <% end %>
       <% if current_user.roles == 'user' %>
-        <li><%= link_to 'Your Requests', requests_path  %></li>
         <li><%= link_to 'New Request', providers_path %></li>
+        <li><%= link_to 'Your Requests', requests_path  %></li>
       <% end %>
       <% if user_signed_in? %>
         <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
@@ -30,8 +30,8 @@
         <li><%= link_to 'Your Quotes', quote_tables_path %></li>
       <% end %>
       <% if current_user.roles == 'user' %>
-        <li><%= link_to 'Your Requests', requests_path %></li>
         <li><%= link_to 'New Request', providers_path %></li>
+        <li><%= link_to 'Your Requests', requests_path %></li>
       <% end %>
       <% if user_signed_in? %>
         <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
