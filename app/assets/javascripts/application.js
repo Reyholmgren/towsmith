@@ -35,7 +35,6 @@ $(document).ready(function(){
         mapholder = document.getElementById('mapholder');
         mapholder.style.height = '250px';
         mapholder.style.width = '800px';
-        storeLocation(lat, lon)
         var myOptions = {
         center:latlon,zoom:14,
         mapTypeId:google.maps.MapTypeId.ROADMAP,
@@ -46,20 +45,7 @@ $(document).ready(function(){
         var map = new google.maps.Map(document.getElementById("mapholder"), myOptions);
         var marker = new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
     }
-    function storeLocation(lat,lon) {
-      var 
-      $.ajax({
-        url: '/requests/' + ,
-        debugger;
-        type: 'PUT',
-        dataType: 'JSON',
-        data: { request: {lat: lat, lon: lon} }
-        success(data) {
-          console.log('success')
-        }
-      });
-    }
-    
+
 
     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
     $('.modal-trigger').leanModal();
