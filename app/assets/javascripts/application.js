@@ -47,15 +47,17 @@ $(document).ready(function(){
         var marker = new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
     }
     function storeLocation(lat,lon) {
-      $.ajax{(
-        url: '/requests',
+      var 
+      $.ajax({
+        url: '/requests/' + ,
+        debugger;
         type: 'PUT',
         dataType: 'JSON',
         data: { request: {lat: lat, lon: lon} }
         success(data) {
           console.log('success')
         }
-      )}
+      });
     }
     
 
