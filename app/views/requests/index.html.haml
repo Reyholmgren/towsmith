@@ -26,7 +26,7 @@
                       - if request.lat && request.lon
                         %a{:href => "http://maps.google.com/?q=#{request.lat},#{request.lon}"}
                           %i.material-icons location_on
-                      - if request.address
+                      - if request.address.length > 5
                         %a{:href => "http://maps.google.com/?q=#{request.address}"}
                           %i.material-icons location_on
                     %td
@@ -56,7 +56,7 @@
                       - if request.lat && request.lon
                         %a{:href => "http://maps.google.com/?q=#{request.lat},#{request.lon}"}
                           %i.material-icons location_on
-                      - if request.address
+                      - if request.address.length > 5
                         %a{:href => "http://maps.google.com/?q=#{request.address}"}
                           %i.material-icons location_on
                     %td
