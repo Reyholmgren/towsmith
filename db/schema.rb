@@ -16,27 +16,10 @@ ActiveRecord::Schema.define(version: 20160205000514) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "locations", force: :cascade do |t|
-    t.string   "city"
-    t.string   "state"
-    t.string   "street"
-    t.string   "zip"
-    t.integer  "provider_id"
-    t.integer  "request_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "quote_tables", force: :cascade do |t|
     t.string   "desc"
     t.float    "price"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "quotes", force: :cascade do |t|
-    t.float    "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

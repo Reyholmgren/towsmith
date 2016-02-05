@@ -31,6 +31,8 @@ $(document).ready(function(){
     function showPosition(position) {
         lat = position.coords.latitude;
         lon = position.coords.longitude;
+        $('#request_lat').val(lat);
+        $('#request_lon').val(lon);
         latlon = new google.maps.LatLng(lat,lon)
         mapholder = document.getElementById('mapholder');
         mapholder.style.height = '250px';
@@ -41,8 +43,15 @@ $(document).ready(function(){
         mapTypeControl:false,
         navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
         }
-        
+
         var map = new google.maps.Map(document.getElementById("mapholder"), myOptions);
+        $('#locationbutton').html('Get Location');
+        $('.map').removeClass('hide');
+        google.maps.event.addDomListener(window, 'resize', function() {
+          var center = map.getCenter();
+          google.maps.event.trigger(map, "resize");
+          map.setCenter(center); 
+        });
         var marker = new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
     }
 
@@ -51,7 +60,8 @@ $(document).ready(function(){
     $('.modal-trigger').leanModal();
 
     $('#locationbutton').click(function() {
-     getLocation()
+      $(this).html('Please Wait...');
+      getLocation()
     });
 
     $("#user_roles_provider").click(function() {

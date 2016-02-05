@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $("#provideraccept").click(function() {
+  $(".provideraccept").click(function() {
     var requestId = $(this).data('request-id');
     var accepted = $(this).prop('checked');
     $.ajax({
@@ -15,7 +15,7 @@ $(document).ready(function(){
       }
     })
   });
-  $("#providercompleted").click(function() {
+  $(".providercompleted").click(function() {
     var requestId = $(this).data('request-id');
     var completed = $(this).prop('checked');
     $.ajax({
