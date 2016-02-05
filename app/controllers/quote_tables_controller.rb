@@ -47,6 +47,6 @@ class QuoteTablesController < ApplicationController
     end
 
     def quote_table_params
-      params.require(:quote_table).permit(:desc, :price)
+      params.require(:quote_table).permit(:desc, :price, :user_id)
     end
 end

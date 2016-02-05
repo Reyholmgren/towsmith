@@ -1,6 +1,25 @@
 .container
   .row
     .col.s12.m8.offset-m2
+      %h3
+        = @provider.first_name
+        = @provider.last_name
+      %table
+        %thead
+          %tr
+            %th Distance (Miles)
+            %th Price
+            %th
+            %th
+        %tbody
+          - if @quote_tables.any?
+            - @quote_tables.each do |quote|
+              %tr
+                %td
+                  = quote.desc
+                %td
+                  = quote.price
+      %hr
       .card-panel
         = form_for @request do |f|
           = f.text_field :phone, placeholder: "Contact Phone Number"
